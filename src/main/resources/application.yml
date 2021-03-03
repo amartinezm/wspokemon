@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/pokemondb?useSSL=false&autoReconnect=true&tinyInt1isBit=false&serverTimezone=UTC
+    username: 'amartinez'
+    password: 'amartinez'
+
+pokemon:
+  api:
+    url: 'https://pokeapi.co/api/v2/'

@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  db:
+    image: percona:latest
+    environment:
+      MYSQL_DATABASE: 'pokemondb'
+      MYSQL_ROOT_PASSWORD: 'amartinez-dev'
+      MYSQL_USER: 'amartinez'
+      MYSQL_PASSWORD: 'amartinez'
+    ports:
+      - "3306:3306"

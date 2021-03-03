@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="69c07418-46c5-4f7f-b489-8810c351e04d" activeEnvironment="Default" name="pokemon" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b0db978a-0baa-43c4-bc16-4229819f36b4" wsaVersion="NONE" name="PokemonPortSoap11" type="wsdl" bindingName="{http://amartinez.com/bankaya/pokemon-web-service}PokemonPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/ws/pokemon.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/ws/pokemon.wsdl"><con:part><con:url>http://localhost:8080/ws/pokemon.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://amartinez.com/bankaya/pokemon-web-service" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://amartinez.com/bankaya/pokemon-web-service" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://amartinez.com/bankaya/pokemon-web-service">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://amartinez.com/bankaya/pokemon-web-service" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="abilities">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name_pokemon" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="abilitiesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="name" type="tns:ability"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:simpleType name="ability">
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:element name="base_experience">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name_pokemon" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="baseExperienceResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="experience" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="held_items">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name_pokemon" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="heldItemsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name_item" type="xs:string"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="version" type="tns:version_details"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:simpleType name="version_details">
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:element name="id">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name_pokemon" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="idResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name_pokemon" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="nameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="location_area_encounters">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name_pokemon" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="locationAreaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="locationArea" type="tns:locationArea"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:simpleType name="locationArea">
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="idResponse">
+    <wsdl:part element="tns:idResponse" name="idResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="heldItemsResponse">
+    <wsdl:part element="tns:heldItemsResponse" name="heldItemsResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="baseExperienceResponse">
+    <wsdl:part element="tns:baseExperienceResponse" name="baseExperienceResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="locationAreaResponse">
+    <wsdl:part element="tns:locationAreaResponse" name="locationAreaResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="abilitiesResponse">
+    <wsdl:part element="tns:abilitiesResponse" name="abilitiesResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="nameResponse">
+    <wsdl:part element="tns:nameResponse" name="nameResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PokemonPort">
+    <wsdl:operation name="id">
+      <wsdl:output message="tns:idResponse" name="idResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="heldItems">
+      <wsdl:output message="tns:heldItemsResponse" name="heldItemsResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="baseExperience">
+      <wsdl:output message="tns:baseExperienceResponse" name="baseExperienceResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="locationArea">
+      <wsdl:output message="tns:locationAreaResponse" name="locationAreaResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="abilities">
+      <wsdl:output message="tns:abilitiesResponse" name="abilitiesResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="name">
+      <wsdl:output message="tns:nameResponse" name="nameResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PokemonPortSoap11" type="tns:PokemonPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="id">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="idResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="heldItems">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="heldItemsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="baseExperience">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="baseExperienceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="locationArea">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="locationAreaResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="abilities">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="abilitiesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="name">
+      <soap:operation soapAction=""/>
+      <wsdl:output name="nameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PokemonPortService">
+    <wsdl:port binding="tns:PokemonPortSoap11" name="PokemonPortSoap11">
+      <soap:address location="http://localhost:8080/ws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ws</con:endpoint></con:endpoints><con:operation id="4b26b76f-8027-412e-b3eb-52bbcb31373c" isOneWay="false" action="" name="abilities" bindingOperationName="abilities" type="Notification" outputName="abilitiesResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="67e5453c-1cea-4374-a1b0-807f7fd3729e" name="Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8081/ws</con:endpoint><con:request><![CDATA[<?xml version="1.0"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://amartinez.com/bankaya/pokemon-web-service">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <gs:abilities>
+      <gs:name_pokemon>butterfree</gs:name_pokemon>
+    </gs:abilities>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="3b9f9156-c52c-4708-a102-4bd8000ff084" isOneWay="false" action="" name="heldItems" bindingOperationName="heldItems" type="Notification" outputName="heldItemsResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="a90946b8-36d4-4b27-bd6f-169a66691228" name="Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<?xml version="1.0"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://amartinez.com/bankaya/pokemon-web-service">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <gs:held_items>
+      <gs:name_pokemon>butterfree</gs:name_pokemon>
+    </gs:held_items>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="9559a79c-96f0-4f53-b78c-5f1791437b6b" isOneWay="false" action="" name="locationArea" bindingOperationName="locationArea" type="Notification" outputName="locationAreaResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="4e0de3dd-7eee-4581-bf80-255a93a6b3fc" name="Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<?xml version="1.0"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://amartinez.com/bankaya/pokemon-web-service">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <gs:location_area_encounters>
+      <gs:name_pokemon>butterfree</gs:name_pokemon>
+    </gs:location_area_encounters>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="c99e860b-31e6-4642-8b93-8ec86c2194ef" isOneWay="false" action="" name="id" bindingOperationName="id" type="Notification" outputName="idResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="a40a6c33-914a-48ea-8176-91c3578aa810" name="Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<?xml version="1.0"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://amartinez.com/bankaya/pokemon-web-service">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <gs:id>
+      <gs:name_pokemon>butterfree</gs:name_pokemon>
+    </gs:id>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="15b01888-9575-45b0-8767-d734a64a790f" isOneWay="false" action="" name="baseExperience" bindingOperationName="baseExperience" type="Notification" outputName="baseExperienceResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="925194b8-4a26-4147-86ab-8cce01313ec4" name="Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<?xml version="1.0"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://amartinez.com/bankaya/pokemon-web-service">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <gs:base_experience>
+      <gs:name_pokemon>butterfree</gs:name_pokemon>
+    </gs:base_experience>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="94d7749e-a01f-4c93-97c6-7f74906636a0" isOneWay="false" action="" name="name" bindingOperationName="name" type="Notification" outputName="nameResponse" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="f9cb698f-182e-4aed-9bd1-005cc4b4d3f7" name="Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ws</con:endpoint><con:request><![CDATA[<?xml version="1.0"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:gs="http://amartinez.com/bankaya/pokemon-web-service">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <gs:name>
+      <gs:name_pokemon>butterfree</gs:name_pokemon>
+    </gs:name>
+  </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

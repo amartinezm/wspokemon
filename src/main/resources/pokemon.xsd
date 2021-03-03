@@ -1,0 +1,108 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://amartinez.com/bankaya/pokemon-web-service"
+           targetNamespace="http://amartinez.com/bankaya/pokemon-web-service" elementFormDefault="qualified">
+
+    <xs:element name="abilities">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name_pokemon" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="abilitiesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="tns:ability" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="ability">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+
+    <xs:element name="base_experience">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name_pokemon" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="baseExperienceResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="experience" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:element name="held_items">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name_pokemon" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="heldItemsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name_item" type="tns:item" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="item">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:element name="id">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name_pokemon" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="idResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="id" type="xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="name">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name_pokemon" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="nameResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="location_area_encounters">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name_pokemon" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="locationAreaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="locationArea" type="tns:locationArea" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:simpleType name="locationArea">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+</xs:schema>
